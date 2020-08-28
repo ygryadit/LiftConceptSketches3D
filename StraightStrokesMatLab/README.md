@@ -30,8 +30,8 @@ To launch the code run in MatLab:
 # Folders structure
 
 ```
-└── designer_name_1
-
+└── inference3D		-- the folder that contains all the functions responsible for lifting a sketch into 3D.
+└── setup 		-- the folder that stores the scripts for setting up method constansts, parameters and flags.
 ```
 
 # Core function    
