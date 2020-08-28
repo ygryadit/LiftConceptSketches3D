@@ -59,13 +59,17 @@ where *strokes_topology*  and *intersections* are the two main data structures, 
 			  f: double		-- foval value	
 	    principal_point: [3×1 double]
 			  R: [3×3 double]	-- Rotation matrix
-			  K: [3×3 double]	-- Kalibration matrix
+			  K: [3×3 double]	-- Calibration matrix
 			  t: [3×1 double]	-- translation vector
 		   view_dir: [3×1 double]
 			fov: double		-- field of view in degrees
 			  C: [3×1 double]	-- camera position
 			 VP: [3×1 double]	-- vanishing points indices [1,2,3]
 		   vp_coord: [3×2 double]	-- vanishing points coordinates
+		   
+*pairsInterInter* are the pairs of intersections that visually appear to be the same intersection, according to the criteria in the Supplemental Section 1.4.
+*ind_first_stroke* an index of the stroke from which to start the reconstruction.
+
 
 ## Core function    
     [strokes_topology, intersections, numbers_of_strokes_to_revisit] = ...
