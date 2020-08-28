@@ -121,7 +121,7 @@ where *strokes_topology*  and *intersections* are the two main data structures, 
 	  struct with fields:
 
 			  P: [3×4 double] 	-- camera matrix
-			  f: double		-- foval value	
+			  f: double		-- focal value	
 	    principal_point: [3×1 double]
 			  R: [3×3 double]	-- Rotation matrix
 			  K: [3×3 double]	-- Calibration matrix
