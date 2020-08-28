@@ -100,8 +100,9 @@ where *strokes_topology*  and *intersections* are the two main data structures, 
 *pairsInterInter* are the pairs of intersections that visually appear to be the same intersection, according to the criteria in the Supplemental Section 1.4.
 *ind_first_stroke* an index of the stroke from which to start the reconstruction.
 
+## Paper Section 5: Reconstructing Straight Strokes
 
-## Core function    
+### Core function    
     [strokes_topology, intersections, numbers_of_strokes_to_revisit] = ...
                assignDepthtoStrokePrecisely(strokes_topology,....
                                             intersections,...
