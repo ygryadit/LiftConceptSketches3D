@@ -7,7 +7,7 @@ ACM Transactions on Graphics (Proceedings of SIGGRAPH Asia), 2020.
 ```
 # Description
 The code consists of two parts the MatLab code for straight strokes reconstruction *StraightStrokesMatLab* and Python code for curved stroke recosntruction in *CurvedStrokesPython*.
-See the README.nd files for detailed description of each of the parts.
+See the README.md files for detailed description of each of the parts.
 
 # Input datasets
 
