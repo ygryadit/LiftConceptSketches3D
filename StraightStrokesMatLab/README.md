@@ -68,7 +68,7 @@ To enable visualisation of each of the streps of the algorith change the followi
 
 
 ## Paper Section 4: Preprocessing
-All the preprocessign described in Sectino 4 is done inside:
+All the preprocessign described in Section 4 is done inside:
 
 	[  	strokes_topology, ...
 		intersections, ...
