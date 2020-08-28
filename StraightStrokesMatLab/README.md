@@ -27,14 +27,30 @@ To launch the code run in MatLab:
 
 # Output Data
 
-# Folders structure
+# Code
+
+## Folders structure
 
 ```
 └── inference3D		-- the folder that contains all the functions responsible for lifting a sketch into 3D.
 └── setup 		-- the folder that stores the scripts for setting up method constansts, parameters and flags.
 ```
 
-# Core function    
+
+## Paper Section 4: Preprocessing
+All the preprocessign decribes in Sectino 4 is done inside:
+
+	[  	strokes_topology, ...
+		intersections, ...
+       		cam_param ,...
+       		pairsInterInter,...
+       		ind_first_stroke] = ...
+                	intialiseDataStructures();
+			
+			
+    
+
+## Core function    
     [strokes_topology, intersections, numbers_of_strokes_to_revisit] = ...
                assignDepthtoStrokePrecisely(strokes_topology,....
                                             intersections,...
