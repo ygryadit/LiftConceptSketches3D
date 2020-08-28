@@ -153,48 +153,48 @@ where *strokes_topology*  and *intersections* are the two main data structures, 
 
 	  num_strokes×1 struct array with fields:
 
-	    accuracy_radius				: The radius for each stroke that defines the neighborhood in which the intersections visually 
-	    						  group and the stroke close each other can be considered as intersecting
-	    assigned					: the stoke number when the stroke is assigned
-	    candidate_lines				: candidate_lines 
-							  n_i×1 struct array with fields:
-							    	origin: [x y z]
-							    	dir: [x y z]
-							    	coordinates3D_prior: [x1 y1 z1 x2 y2 z2]
-							    	length3D: 
-							    	configurations: [n×1 struct]
-							    	inds_intrsctns:  All the intersections
-								nds_intrsctns__assigned:  All the intersections with strokes with assigned 3D positions
-								inds_intrsctns__mult_cnddts: All the intersections with strokes with candidate set of 3D positions*
-								inds_intrsctns__mult_cnddts_ind: Version of the intersection (version of intersecting candidate line)
-								inds_jnts_strks: List of strokes which contributed to computation of a joint cost
-								p_intrsctns_dists: Distances from intersections to a proxy line
-								p_directional: Reward associated with directional information
-								p_coverage: Reward associated with 2D coverage of the strokes by the stroke piece between the first and last intersections
-								p_full: Reward full of the strokes
-								p_full_joint: Optimal joint reward
+	    accuracy_radius			: The radius for each stroke that defines the neighborhood in which the intersections visually 
+	    					  group and the stroke close each other can be considered as intersecting
+	    assigned				: the stoke number when the stroke is assigned
+	    candidate_lines			: candidate_lines 
+						  n_i×1 struct array with fields:
+						    	origin: [x y z]
+						    	dir: [x y z]
+						    	coordinates3D_prior: [x1 y1 z1 x2 y2 z2]
+						    	length3D: 
+						    	configurations: [n×1 struct]
+						    	inds_intrsctns:  All the intersections
+							nds_intrsctns__assigned:  All the intersections with strokes with assigned 3D positions
+							inds_intrsctns__mult_cnddts: All the intersections with strokes with candidate set of 3D positions*
+							inds_intrsctns__mult_cnddts_ind: Version of the intersection (version of intersecting candidate line)
+							inds_jnts_strks: List of strokes which contributed to computation of a joint cost
+							p_intrsctns_dists: Distances from intersections to a proxy line
+							p_directional: Reward associated with directional information
+							p_coverage: Reward associated with 2D coverage of the strokes by the stroke piece between the first and last intersections
+							p_full: Reward full of the strokes
+							p_full_joint: Optimal joint reward
 	
-	    confidence					: measure of how much the best guess is better than the second best guess
-	    created					: index of the stroke when the candaite lines for the current stroke were created for the first time
-	    depth_assigned				: boolean flag *true* if stroke position is resolved
-	    direction_vec				: the best directional vector that describes the stroke in 3D
-	    ind_orth_ax					: Index of the axis [x, y, z] that is orthogonal to the plane in which the line lies
+	    confidence				: measure of how much the best guess is better than the second best guess
+	    created				: index of the stroke when the candaite lines for the current stroke were created for the first time
+	    depth_assigned			: boolean flag *true* if stroke position is resolved
+	    direction_vec			: the best directional vector that describes the stroke in 3D
+	    ind_orth_ax				: Index of the axis [x, y, z] that is orthogonal to the plane in which the line lies
 	    indcs_intrsctng_strks
 	    indcs_intrsctns
 	    inds_intrsctng_strks_eval
 	    inds_intrsctns_eval
 	    inter_seg_nums
-	    length2D					: The length of polyline between the first and last intersections
-	    length2DFull				: The length of a full 2D polyline
-	    length2DLikely				: Porbably not used in the current version
-	    length2DPrimitive				: Porbably not used in the current version	
-	    length3D					: length in 3D
-	    line_group					: Possible values:
-							    	1: first vanishing point
-								2: second vanishing point
-								3: third vanishing point
-								4: the rest of lines
-								5: lines with a given Vanishing Point and a prior in which plane the line lies.
+	    length2D				: The length of polyline between the first and last intersections
+	    length2DFull			: The length of a full 2D polyline
+	    length2DLikely			: Porbably not used in the current version
+	    length2DPrimitive			: Porbably not used in the current version	
+	    length3D				: length in 3D
+	    line_group				: Possible values:
+						    	1: first vanishing point
+							2: second vanishing point
+							3: third vanishing point
+							4: the rest of lines
+							5: lines with a given Vanishing Point and a prior in which plane the line lies.
 	    mean_pressure
 	    merged_with
 	    num_candidate_lines
@@ -202,24 +202,24 @@ where *strokes_topology*  and *intersections* are the two main data structures, 
 	    num_candidate_lines_all
 	    num_candidate_lines_before_trim
 	    planes_normals
-	    points2D					: num_pointsx1 struct array with fields:
-								  p : pressure
-								  t : time
-								  x : x corrdinate
-								  y : y coordinate
+	    points2D				: num_pointsx1 struct array with fields:
+							  p : pressure
+							  t : time
+							  x : x corrdinate
+							  y : y coordinate
 	    points2DOriginal
 	    points3D
 	    points3D_clean
 	    poly2d_extended
-	    primitive_geom				: The 2D coordinates of an approximating line geometry [x1 x2 y1 y2]
+	    primitive_geom			: The 2D coordinates of an approximating line geometry [x1 x2 y1 y2]
 	    primitive_geom_3D
-	    primitive_type				: Possible values:
-								0: line
-								1: curve
-								2: mark
-							       -1: grouped with some other stroke
-							       -2: has zero intersections with any other stroke
-							       -3: non defined speed
+	    primitive_type			: Possible values:
+							0: line
+							1: curve
+							2: mark
+						       -1: grouped with some other stroke
+						       -2: has zero intersections with any other stroke
+						       -3: non defined speed
 
 	    score
 	    score_alignment
@@ -227,74 +227,7 @@ where *strokes_topology*  and *intersections* are the two main data structures, 
 	    speed
     
 
-* *points2D*
-    * .p -- pressure
-    * .t -- time
-    * .x -- x corrdinate
-    * .y -- y coordinate
-    
-* *primitive_type*      
-    * 0: line
-    * 1: curve
-    * 2: mark
-	* -1: grouped with some other stroke
-	* -2: has zero intersections with any other stroke
-	* -3: non defined speed
-   
-* *primitive_geom*
-    * In case of a line, the 2D coordinates of an approximating line geometry [x1 x2 y1 y2]
-        
-* *mean_pressure*
-* *speed*
-    *  An average speed of a stroke
-*  *line_group*
-    * 1: first vanishing point
-    * 2: second vanishing point
-    * 3: third vanishing point
-    * 4: the rest of lines
-    * 5: lines with a given Vanishing Point and a prior in which plane the line lies.
-* *ind_orth_ax*
-	* Index of the axis [x, y, z] that is orthogonal to the plane in which the line lies.
-* *length2DFull* 
-    *   The length of a full 2D polyline 
-*  *length2D* 
-    *   The length of polyline between the first and last intersections
-*  *length3D*
 
-
-* *accuracy_radius*
-    *  The radius for each stroke that defines the neighborhood in which the intersections visually group and the stroke close each other can be considered as intersecting
-* indcs_intrsctng_strks
-* indcs_intrsctns
-* inds_intrsctns_eval
-* inds_intrsctng_strks_eval
-* primitive_geom_3D
-* points3D
-* score
-* score_alignment
-* score_coverage
-* confidence
-* direction_vec
-* depth_assigned
-* *.candidate_lines* [n×1 struct]
-    * .origin: [x y z]
-    * .dir: [x y z]
-    * .coordinates3D_prior: [x1 y1 z1 x2 y2 z2]
-    * .length3D: 
-    * .configurations: [n×1 struct]
-        *   .inds_intrsctns:                    
-        *All the intersections*
-        *   .inds_intrsctns__assigned:          // *All the intersections with strokes with assigned 3D positions*
-        *   .inds_intrsctns__mult_cnddts:       // *All the intersections with strokes with candidate set of 3D positions*
-        *   .inds_intrsctns__mult_cnddts_ind    // version of the intersection (version of intersecting candidate line)
-        *   .inds_jnts_strks:                   // list of strokes which contributed to computation of a joint cost
-        *   .p_intrsctns_dists:                 // distances from intersections to a proxy line
-        *   .p_directional:                     // reward associated with directional information
-        *   .p_coverage:                        // reward associated with 2D coverage of the strokes by the stroke piece between the first and last intersections
-        *   .p_full:                            // reward full of the strokes
-        *   .p_full_joint:                      // optimal joint reward
-
-	
 ## intersections
 
 * .coordinates2D  
