@@ -1,4 +1,4 @@
-# Input Data:
+# Input Data
 
 The code is designed to run on the skecthes from the [OpenSkecth](https://repo-sam.inria.fr/d3/OpenSketch/) dataset.
 You can download the data [here](https://repo-sam.inria.fr/d3/OpenSketch/Data/sketches/sketches_json_first_viewpoint.zip).
@@ -6,7 +6,7 @@ You can download the data [here](https://repo-sam.inria.fr/d3/OpenSketch/Data/sk
 We additionally collected a set of sketches, which are available [coming soon].
 
 
-# Lauch command:
+# Launch command:
 To launch the code run in MatLab:
 
 launchOpenSketch(folder_skecthes, desginer_name, object_name, folder_save)
