@@ -49,7 +49,7 @@ All the preprocessign decribed in Sectino 4 is done inside:
 			
 			
 where *strokes_topology*  and *intersections* are the two main data structures, described in detail below.
-*cam_param* -- are the estimated camera parameters
+*cam_param* -- are the estimated camera parameters:
 	
 	cam_param = 
 
