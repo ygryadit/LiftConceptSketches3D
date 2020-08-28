@@ -1,6 +1,6 @@
 # Input Data
 
-The code is designed to run on the skecthes from the [OpenSkecth](https://repo-sam.inria.fr/d3/OpenSketch/) dataset.
+The code is designed to run on the sketches from the [OpenSkecth](https://repo-sam.inria.fr/d3/OpenSketch/) dataset.
 You can download the data [here](https://repo-sam.inria.fr/d3/OpenSketch/Data/sketches/sketches_json_first_viewpoint.zip).
 The zip archive has the follwoing structure:
 
