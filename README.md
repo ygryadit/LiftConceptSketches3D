@@ -30,7 +30,7 @@ sketches_json_first_viewpoint
 └── designer_name_k
 ``` 
 ## Additional design sketches OpenSketch++
-We additionally collected a set of sketches, which are available [OpenSketch++] (coming soon). The files in this archive are structured the same way as in the OpenSketch dataset.
+We collected an additional set of sketches [OpenSketch++] (coming soon). The files in this archive are structured the same way as in the OpenSketch dataset.
 
 
 
