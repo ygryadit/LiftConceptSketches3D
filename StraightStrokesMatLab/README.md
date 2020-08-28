@@ -82,7 +82,7 @@ To launch the code run in MatLab:
     * 4: the rest of lines
 	* 5: lines with a given Vanishing Point and a prior in which plane the line lies.
 * *speed*
-    *  An average spee of a stroke
+    *  An average speed of a stroke
 * *accuracy_radius*
     *  The radius for each stroke that defines the neighborhood in which the intersections visually group and the stroke close each other can be considered as intersecting
 * indcs_intrsctng_strks
