@@ -32,13 +32,43 @@ folder_save
 └── designer_name
     └── object_name
         └── view1
+	    └── animation  			-- scg frames visualizing camera roration around the reconstructed shape
 	    └── EstimatedVP
 	    	└── lines_convergence.png 	-- An image that contains visualisation of three orthogonal directions
 		└── vps.mat 	 		-- Mat file that contains the coordiantes of vanishing points.
 	    └── images
+		└── all_intersections_straight.svg     
+		└── accuracy_radius.png 
+		└── all_intersections_all_strokes.svg
+		└── all_intersections_curved.svg  
+		└── exact_intersections.png            
+		└── intersections_likely.png           
+		└── likely_intersections.svg           
+		└── all_intersections_curved.svg       
 	    └── lines_separation
+	    	└── curves.svg  		-- this files is passed to a StrokeAggregator prior to curved strokes processing
+		└── lines.svg   	    	
 	    └── merged_svg
+	    	└── lines_before_merging.svg  
+	    	└── lines_after_merging.svg
 	    └── svg_files
+	    	└── lines_vp.svg		-- color coding of the lines for lines towards vanishign points and others
+		
+	    └── intersections_stat.mat  	-- contains fields: *num_intersections* and *num_likely_intersections*
+	    └── preformance.mat  		-- *ellapsed time*
+	    
+	    └── designer_name_object_name_bestScore.obj                
+	    └── designer_name_object_name_bestScore_full.json          
+	    └── designer_name_object_name_bestScore_single_object.obj  
+	    └── designer_name_object_name_confident.obj                
+	    └── designer_name_object_name_confident_full.json          
+	    └── designer_name_object_name_confident_single_object.obj  
+	    └── designer_name_object_name_final.obj                    
+	    └── designer_name_object_name_final_full.json              
+	    └── designer_name_object_name_final_single_object.obj      
+	    └── designer_name_object_name_highScore.obj                
+	    └── designer_name_object_name_highScore_full.json          
+	    └── designer_name_object_name_highScore_single_object.obj  	
 ```	    
 
 
