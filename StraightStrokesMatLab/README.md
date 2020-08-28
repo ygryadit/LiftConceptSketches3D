@@ -1,16 +1,28 @@
-# Input Data:
+# Input Data
 
 The code is designed to run on the skecthes from the [OpenSkecth](https://repo-sam.inria.fr/d3/OpenSketch/) dataset.
 You can download the data [here](https://repo-sam.inria.fr/d3/OpenSketch/Data/sketches/sketches_json_first_viewpoint.zip).
+The zip archive has the follwoing structure:
 
-We additionally collected a set of sketches, which are available [coming soon].
+```
+sketches_json_first_viewpoint
+└── designer_name_1
+│   └── object_name_1
+│   │   └── view1_concept.json
+│    ...
+│   └── object_name_m
+│	└── view1_concept.json	
+...
+└── designer_name_k
+``` 
+
+We additionally collected a set of sketches, which are available [coming soon]. The files in this archive are structured the same way as in the OpenSketch dataset.
 
 
-# Lauch command:
+# Launch command
 To launch the code run in MatLab:
 
-launchOpenSketch(folder_skecthes, desginer_name, object_name, folder_save)
-
+	launchOpenSketch(folder_skecthes, designer_name, object_name, folder_save)
 
 
 
