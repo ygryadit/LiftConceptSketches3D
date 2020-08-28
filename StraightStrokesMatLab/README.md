@@ -149,6 +149,48 @@ where *strokes_topology*  and *intersections* are the two main data structures, 
 # Main data structures:
 
 ## strokes_topology
+	strokes_topology_ = 
+
+	  num_strokes×1 struct array with fields:
+
+	    accuracy_radius				: The radius for each stroke that defines the neighborhood in which the intersections visually group and the stroke close each other can be considered as intersecting
+	    assigned
+	    candidate_lines
+	    confidence
+	    created
+	    depth_assigned
+	    direction_vec
+	    ind_orth_ax
+	    indcs_intrsctng_strks
+	    indcs_intrsctns
+	    inds_intrsctng_strks_eval
+	    inds_intrsctns_eval
+	    inter_seg_nums
+	    length2D
+	    length2DFull
+	    length2DLikely
+	    length2DPrimitive
+	    length3D
+	    line_group
+	    mean_pressure
+	    merged_with
+	    num_candidate_lines
+	    num_candidate_lines_after_trim
+	    num_candidate_lines_all
+	    num_candidate_lines_before_trim
+	    planes_normals
+	    points2D
+	    points2DOriginal
+	    points3D
+	    points3D_clean
+	    poly2d_extended
+	    primitive_geom
+	    primitive_geom_3D
+	    primitive_type
+	    score
+	    score_alignment
+	    score_coverage
+	    speed
     
 
 * *points2D*
@@ -169,19 +211,23 @@ where *strokes_topology*  and *intersections* are the two main data structures, 
     * In case of a line, the 2D coordinates of an approximating line geometry [x1 x2 y1 y2]
         
 * *mean_pressure*
-* *length2DFull* 
-    *   The length of a full 2D polyline 
-*  *length2D* 
-    *   The length of polyline between the first and last intersections
-*  *length3D*
+* *speed*
+    *  An average speed of a stroke
 *  *line_group*
     * 1: first vanishing point
     * 2: second vanishing point
     * 3: third vanishing point
     * 4: the rest of lines
-	* 5: lines with a given Vanishing Point and a prior in which plane the line lies.
-* *speed*
-    *  An average speed of a stroke
+    * 5: lines with a given Vanishing Point and a prior in which plane the line lies.
+* *ind_orth_ax*
+	* Index of the axis [x, y, z] that is orthogonal to the plane in which the line lies.
+* *length2DFull* 
+    *   The length of a full 2D polyline 
+*  *length2D* 
+    *   The length of polyline between the first and last intersections
+*  *length3D*
+
+
 * *accuracy_radius*
     *  The radius for each stroke that defines the neighborhood in which the intersections visually group and the stroke close each other can be considered as intersecting
 * indcs_intrsctng_strks
@@ -213,8 +259,7 @@ where *strokes_topology*  and *intersections* are the two main data structures, 
         *   .p_coverage:                        // reward associated with 2D coverage of the strokes by the stroke piece between the first and last intersections
         *   .p_full:                            // reward full of the strokes
         *   .p_full_joint:                      // optimal joint reward
-* *ind_orth_ax*
-	* Index of the axis [x, y, z] that is orthogonal to the plane in which the line lies.
+
 	
 ## intersections
 
