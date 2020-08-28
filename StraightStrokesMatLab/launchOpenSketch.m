@@ -4,7 +4,7 @@
 % 'house',...
 % 'Z:\WiresProject\Code\Matlab\reconstruct_wires\output_new')
 
-function launchOpenSketch_cluster_a(folder_designer_,...
+function launchOpenSketch(folder_designer_,...
                         designer_,...
                         object_name_,...
                         folder_out,...
@@ -56,18 +56,13 @@ setMethodOptions;
 
 %% Logfile
 global fid;
-% fid = fopen(fullfile(folder_save, 'LogFile.txt'), 'a');
-% if fid == -1
-%   error('Cannot open log file.');
-% end
-% fprintf(fid, 'Ready \n');
 fid = 1;
-% fid 1 to output to matlab screen.
+
 fprintf(fid, 'Designer %s, object %s \n', designer, object_name);
 
 
 %% Folders:
-folder_save = fullfile(folder_out, 'gen_cand_planes', sprintf('_%d', thr_max_num_lines));
+%folder_save = fullfile(folder_out, 'gen_cand_planes', sprintf('_%d', thr_max_num_lines));
 
 [folder_save, ...
  folder_save_imgs, ...
@@ -85,8 +80,6 @@ timerVal1 = tic;
 global GENERATE_CANDIDATE_PLANES;
 GENERATE_CANDIDATE_PLANES = true;
 
-
-
 try
     roughSketch3DInference();
     fprintf(fid, 'Success: designer %s, object %s \n', designer, object_name);
@@ -97,8 +90,5 @@ try
 catch e
     getReport(e, 'extended')
 end                  
-
-% fclose all;
-
 
 end
