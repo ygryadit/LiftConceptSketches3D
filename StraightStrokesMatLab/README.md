@@ -25,6 +25,14 @@ To launch the code run in MatLab:
 	launchOpenSketch(folder_skecthes, designer_name, object_name, folder_save)
 
 
+# Output Data
+
+# Folders structure
+
+```
+└── designer_name_1
+
+```
 
 # Core function    
     [strokes_topology, intersections, numbers_of_strokes_to_revisit] = ...
