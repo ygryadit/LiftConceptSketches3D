@@ -35,4 +35,4 @@ We collected an additional set of sketches [OpenSketch++] (coming soon). The fil
 
 
 # Reconstructed sketches shown in the paper and the supplemental
-
+All the reconstruction results are available [here] (coming soon).
