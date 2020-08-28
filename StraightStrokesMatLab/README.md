@@ -135,27 +135,7 @@ To launch the code run in MatLab:
     * .cnddt_lns 
         *2×1 cell array, first cell contains candidate lines indices from the first stroke in* .strokes_indices *and the second candidate lines from the second stroke*
     * .cnfgrtns 
-        *2×1 cell array, each celll is agin a cell* 
+        *2×1 cell array, each celll is again a cell* 
 
-# Stroke intersections:
 
-recomputeAccurateIntersectionsBetweenLineStrokes()
-
-    Recomputes the accurate positions of the intersections betwee line
-    strokes. The positions are inaccurate when the strokes are approximated
-    with line segments.
-
-sketch_strokes = resampleAllStrokes(sketch_strokes, DGP_THR, img)
-
-    Resample all the strokes using Ramer–Douglas–Peucker algorithm. epsilon = DGP_THR, computed based on teh sacele from 400*400, where accuracy is set to 0.1.
-    
-[x0,y0,iout,jout] = intersectionsPolyPoly(x1,y1,x2,y2,robust)
-
-    Find intersection point between two polylines.
-	
-	
-# Code:
-
-* *setup* setup the filepaths 
-	* setupFolderPaths -- setups the filepaths 
 	
