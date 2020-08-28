@@ -1,6 +1,6 @@
 # Input Data
 
-The code is designed to run on the skecthes from the [OpenSkecth](https://repo-sam.inria.fr/d3/OpenSketch/) dataset.
+The code is designed to run on the sketches from the [OpenSkecth](https://repo-sam.inria.fr/d3/OpenSketch/) dataset.
 You can download the data [here](https://repo-sam.inria.fr/d3/OpenSketch/Data/sketches/sketches_json_first_viewpoint.zip).
 The zip archive has the follwoing structure:
 
@@ -26,26 +26,125 @@ To launch the code run in MatLab:
 
 
 # Output Data
+The code produces as the output the follwing folders and files:
+```
+folder_save
+└── designer_name
+    └── object_name
+        └── view1
+	    └── animation  			-- scg frames visualizing camera roration around the reconstructed shape
+	    └── EstimatedVP
+	    	└── lines_convergence.png 	-- An image that contains visualisation of three orthogonal directions
+		└── vps.mat 	 		-- Mat file that contains the coordiantes of vanishing points.
+	    └── images
+		└── all_intersections_straight.svg     
+		└── accuracy_radius.png 
+		└── all_intersections_all_strokes.svg
+		└── all_intersections_curved.svg  
+		└── exact_intersections.png            
+		└── intersections_likely.png           
+		└── likely_intersections.svg           
+		└── all_intersections_curved.svg       
+	    └── lines_separation
+	    	└── curves.svg  		-- this files is passed to a StrokeAggregator prior to curved strokes processing
+		└── lines.svg   	    	
+	    └── merged_svg
+	    	└── lines_before_merging.svg  
+	    	└── lines_after_merging.svg
+	    └── svg_files
+	    	└── lines_vp.svg		-- color coding of the lines for lines towards vanishign points and others
+		
+	    └── intersections_stat.mat  	-- contains fields: *num_intersections* and *num_likely_intersections*
+	    └── preformance.mat  		-- *ellapsed time*
+	    
+	    └── designer_name_object_name_bestScore.obj                
+	    └── designer_name_object_name_bestScore_full.json          
+	    └── designer_name_object_name_bestScore_single_object.obj  
+	    └── designer_name_object_name_confident.obj                
+	    └── designer_name_object_name_confident_full.json          
+	    └── designer_name_object_name_confident_single_object.obj  
+	    └── designer_name_object_name_final.obj                    	-- the final reconstruction results used in the paper
+	    └── designer_name_object_name_final_full.json               -- this json file is used as an input to the curve reconstruction part
+	    └── designer_name_object_name_final_single_object.obj      
+	    └── designer_name_object_name_highScore.obj                
+	    └── designer_name_object_name_highScore_full.json          
+	    └── designer_name_object_name_highScore_single_object.obj  	
+```	    
 
-# Folders structure
+## Files used as an input to the Curved strokes reconstruction part:
+
+*folder_save/designer_name/object_name/view1/lines_separation/curves.svg*
+and
+*folder_save/designer_name/object_name/view1/designer_name_object_name_final_full.json*
+
+
+
+
+# Code
+
+## Folders structure
 
 ```
-└── designer_name_1
-
+└── inference3D		-- the folder that contains all the functions responsible for lifting a sketch into 3D.
+└── setup 		-- the folder that stores the scripts for setting up method constansts, parameters and flags.
 ```
 
-# Core function    
-    [strokes_topology, intersections, numbers_of_strokes_to_revisit] = ...
-               assignDepthtoStrokePrecisely(strokes_topology,....
-                                            intersections,...
-                                            stroke_ind_cur, ...
-                                            sketch_height, ...
-                                            sketch_width,...
-                                            cam_param,...
-                                            img,...
-                                            folder_save, ...
-                                            pairsInterInter,...
-                                            do_assign_depth)
+## Visualization
+To enable visualisation of each of the streps of the algorith change the following flags in *setDisplaySaveSettings.m* to *true*:
+	
+	global DISPLAY_INFO
+	DISPLAY_INFO = false;
+
+	global SHOW_FIGS
+	SHOW_FIGS = false;
+
+	global SHOW_FIGS_PREPROCESS
+	SHOW_FIGS_PREPROCESS = false;
+
+
+## Paper Section 4: Preprocessing
+All the preprocessign described in Section 4 is done inside:
+
+	[  	strokes_topology, ...
+		intersections, ...
+		cam_param ,...
+		pairsInterInter,...
+		ind_first_stroke] = ...
+                	intialiseDataStructures();
+			
+			
+where *strokes_topology*  and *intersections* are the two main data structures, described in detail below.
+*cam_param* -- are the estimated camera parameters:
+	
+	cam_param = 
+
+	  struct with fields:
+
+			  P: [3×4 double] 	-- camera matrix
+			  f: double		-- foval value	
+	    principal_point: [3×1 double]
+			  R: [3×3 double]	-- Rotation matrix
+			  K: [3×3 double]	-- Calibration matrix
+			  t: [3×1 double]	-- translation vector
+		   view_dir: [3×1 double]
+			fov: double		-- field of view in degrees
+			  C: [3×1 double]	-- camera position
+			 VP: [3×1 double]	-- vanishing points indices [1,2,3]
+		   vp_coord: [3×2 double]	-- vanishing points coordinates
+		   
+*pairsInterInter* are the pairs of intersections that visually appear to be the same intersection, according to the criteria in the Supplemental Section 1.4.
+*ind_first_stroke* an index of the stroke from which to start the reconstruction.
+
+## Paper Section 5: Reconstructing Straight Strokes
+
+### Core function    
+ 	[strokes_topology, intersections] = ...
+                       assignDepthStroke(strokes_topology,....
+                                         intersections,...
+                                         ind_strk_zero_cnddts, ...
+                                         cam_param,...
+                                         pairsInterInter,...
+                                         true);
 
 # Main data structures:
 
@@ -82,7 +181,7 @@ To launch the code run in MatLab:
     * 4: the rest of lines
 	* 5: lines with a given Vanishing Point and a prior in which plane the line lies.
 * *speed*
-    *  An average spee of a stroke
+    *  An average speed of a stroke
 * *accuracy_radius*
     *  The radius for each stroke that defines the neighborhood in which the intersections visually group and the stroke close each other can be considered as intersecting
 * indcs_intrsctng_strks
@@ -135,27 +234,7 @@ To launch the code run in MatLab:
     * .cnddt_lns 
         *2×1 cell array, first cell contains candidate lines indices from the first stroke in* .strokes_indices *and the second candidate lines from the second stroke*
     * .cnfgrtns 
-        *2×1 cell array, each celll is agin a cell* 
+        *2×1 cell array, each celll is again a cell* 
 
-# Stroke intersections:
 
-recomputeAccurateIntersectionsBetweenLineStrokes()
-
-    Recomputes the accurate positions of the intersections betwee line
-    strokes. The positions are inaccurate when the strokes are approximated
-    with line segments.
-
-sketch_strokes = resampleAllStrokes(sketch_strokes, DGP_THR, img)
-
-    Resample all the strokes using Ramer–Douglas–Peucker algorithm. epsilon = DGP_THR, computed based on teh sacele from 400*400, where accuracy is set to 0.1.
-    
-[x0,y0,iout,jout] = intersectionsPolyPoly(x1,y1,x2,y2,robust)
-
-    Find intersection point between two polylines.
-	
-	
-# Code:
-
-* *setup* setup the filepaths 
-	* setupFolderPaths -- setups the filepaths 
 	
