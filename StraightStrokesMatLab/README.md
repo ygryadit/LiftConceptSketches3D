@@ -6,10 +6,10 @@ You can download the data [here](https://repo-sam.inria.fr/d3/OpenSketch/Data/sk
 We additionally collected a set of sketches, which are available [coming soon].
 
 
-# Launch command:
+# Launch command
 To launch the code run in MatLab:
 
-launchOpenSketch(folder_skecthes, desginer_name, object_name, folder_save)
+	launchOpenSketch(folder_skecthes, desginer_name, object_name, folder_save)
 
 
 
