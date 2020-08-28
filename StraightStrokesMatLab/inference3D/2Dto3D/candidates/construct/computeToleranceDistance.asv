@@ -1,0 +1,18 @@
+function computeToleranceDistance(strokes_topology, candidate_line)
+%     based on approach from Lipson
+
+%find distance to each stroke as an avarage disatance to it's endpoints,
+%including half of the stroke itself, the minimum value is an accuracy
+%radius.
+
+
+
+lines_assigned = cat(1,strokes_topology([strokes_topology(:).depth_assigned]).primitive_geom_3D);
+lines_assigned= lines_assigned';
+lines_assigned = reshape(lines_assigned, 6, [])';
+
+inds_mult_clns = find([strokes_topology(:).num_candidate_lines] > 0);
+
+clns = cat(2, strokes_topology(inds_mult_clns).candidate_lines);
+lines_assigned
+end

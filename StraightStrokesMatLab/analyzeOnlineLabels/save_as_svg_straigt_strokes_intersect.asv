@@ -1,0 +1,139 @@
+function save_as_svg_straigt_strokes_intersect(strokes,intersections,solution, agrement, folder_save, sketch_height)
+
+
+
+
+
+% [strokes] = computeAverageStrokesSpeed(strokes);
+% [accuracy_radiuses] = computeMergeThresholdStrokes(cat(1,strokes(:).speed));
+radius_circle = 4;
+ 
+ num_strokes = round(length(strokes)); 
+   
+for i = 1:num_strokes
+   stroke = strokes(i).points;
+   strokes(i).mean_pressure   = mean(cat(1,stroke(:).p));
+end
+
+pressure_max = max(cat(1, strokes(:).mean_pressure));
+thr_max_pressure = 1.0;
+if pressure_max < thr_max_pressure 
+    scale_f = thr_max_pressure/pressure_max;
+    for  i = 1:length(strokes)
+        strokes(i).mean_pressure = strokes(i).mean_pressure*scale_f;
+    end
+end
+    
+
+
+
+
+
+filepath = fullfile(folder_save, sprintf('intersections_active.svg'));
+
+pen_width = 1.5;
+fid = fopen(filepath, 'w');
+
+str = sprintf('<?xml version="1.0" encoding="utf-8" ?>\n'); 
+fwrite(fid, str);
+str = sprintf('<svg baseProfile="full" height="%d" version="1.1" viewBox="0,0,%d,%d" width="%d" xmlns="http://www.w3.org/2000/svg" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"><![CDATA[\n', ...
+    sketch_height,sketch_height,sketch_height,sketch_height);
+fwrite(fid, str);
+str = sprintf('\t.background { fill: white; }\n');
+fwrite(fid, str);
+str = sprintf('\t.line { stroke: firebrick; stroke-width: .1mm; }\n');
+fwrite(fid, str);
+str = sprintf('\t.blacksquare { fill: indigo; }\n');
+fwrite(fid, str);
+str = sprintf('\t.whitesquare { fill: white; }\n');
+fwrite(fid, str);
+str = sprintf(']]></style></defs>\n');
+fwrite(fid, str);
+
+%% Sketch:
+for i = 1:length(strokes)   
+   
+   avg_pressure = strokes(i).mean_pressure;
+   
+   if avg_pressure < 1e-19
+       fprintf('Zero pressure stroke %d\n', i);
+       continue;       
+   end
+   
+   str = sprintf('<path d="M %.5f %.5f ',...
+       strokes(i).points(1).x, ...
+       strokes(i).points(1).y);   
+   fwrite(fid, str);
+   
+   for j = 2:length(strokes(i).points)
+      str = sprintf('L %.5f %.5f ',strokes(i).points(j).x, strokes(i).points(j).y);   
+      fwrite(fid, str);
+   end
+   
+   str = sprintf('"');   
+   fwrite(fid, str);
+%    
+%    if strokes(i).line_group == 1 
+%         color = uint8([1.0 0 0.5]*255);
+%    elseif strokes(i).line_group == 2
+%         color = uint8([0 0.8 0.4]*255);   
+%    elseif strokes(i).line_group == 3 
+%         color = uint8([0.4 0.3 1.0]*255);
+%    else
+%         color = uint8([0.8 0.8 0.0]*255);
+%    end
+   color = [0 0 0];
+   str = sprintf(' fill="none" stroke="rgb(%d, %d, %d)" stroke-width="%.5f" stroke-opacity="%.3f" />',...
+                color(1),...
+                color(2),...
+                color(3),...
+                pen_width*avg_pressure,...
+                avg_pressure);   
+   fwrite(fid, str);
+end
+
+
+%% Intersections:
+inds_intersect = find(solution);
+agrement = agrement(inds_intersect);
+agrement = agrement - min(agrement);
+agrement = agrement / max(agrement);
+% circle_r = 
+
+for i = 1:length(inds_intersect)
+    color = agrement2color(agrement(i));
+    str = sprintf(' <circle cx="%.3f" cy="%.3f" r="%.3f" fill-opacity="0.5" fill="rgb(%d, %d, %d)" />',...
+                intersections.coordinates2D(inds_intersect(i),1),...
+                intersections.coordinates2D(inds_intersect(i),2),...
+                radius_circle,...                
+                color(1),...
+                color(2),...
+                color(3));   
+            
+   strk_indices = intersections.strokes_indices(inds_intersect(i),:);
+   findClosestTwoPointsStroke( strokes(strk_indices(1)).points, point)
+   
+   
+   fwrite(fid, str);
+    
+end
+
+
+
+
+str = sprintf('</svg>');
+fwrite(fid, str);
+
+fclose(fid);
+end
+
+function findClosestTwoPointsStroke(strokePoints, point)
+    strokePoints = cat(1,strokePoints
+end
+
+function color = agrement2color(value)
+colors = jet(256);
+% color = uint8(([1.0 1.0 1.0] - colors(uint8(value*255),:))*255);
+color = uint8((colors(uint8(value*255)+1,:))*256);
+% color = [255 0 0];
+end
