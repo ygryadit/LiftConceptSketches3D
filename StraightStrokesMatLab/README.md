@@ -71,6 +71,11 @@ folder_save
 	    └── designer_name_object_name_highScore_single_object.obj  	
 ```	    
 
+## Files used as an input to the Curved strokes reconstruction part:
+
+*folder_save/designer_name/object_name/view1/lines_separation/curves.svg*
+and
+*folder_save/designer_name/object_name/view1/designer_name_object_name_final_full.json*
 
 
 
