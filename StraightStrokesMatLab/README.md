@@ -1,6 +1,6 @@
 # Input Data
 
-The code is designed to run on the sketches from the [OpenSkecth](https://repo-sam.inria.fr/d3/OpenSketch/) dataset.
+The code is designed to run on the sketches from the [OpenSketch](https://repo-sam.inria.fr/d3/OpenSketch/) dataset.
 You can download the data [here](https://repo-sam.inria.fr/d3/OpenSketch/Data/sketches/sketches_json_first_viewpoint.zip).
 The zip archive has the follwoing structure:
 
@@ -16,7 +16,7 @@ sketches_json_first_viewpoint
 └── designer_name_k
 ``` 
 
-We additionally collected a set of sketches, which are available [coming soon]. The files in this archive are structured the same way as in the OpenSketch dataset.
+We collected an additional set of sketches:  [OpenSketch++] (coming soon). The files in this archive are structured the same way as in the OpenSketch dataset.
 
 
 # Launch command
