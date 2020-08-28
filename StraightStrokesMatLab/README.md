@@ -55,7 +55,7 @@ folder_save
 ```
 
 ## Visualization
-To enable visualisation of each of the streps of the algorith change the following flags in setDisplaySaveSettings.m to *true*:
+To enable visualisation of each of the streps of the algorith change the following flags in *setDisplaySaveSettings.m* to *true*:
 	
 	global DISPLAY_INFO
 	DISPLAY_INFO = false;
