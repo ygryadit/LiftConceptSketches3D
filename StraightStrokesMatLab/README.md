@@ -26,6 +26,24 @@ To launch the code run in MatLab:
 
 
 # Output Data
+The code produces as the output the follwing folders and files:
+```
+folder_save
+└── designer_name
+    └── object_name
+        └── view1
+	    └── EstimatedVP
+	    	└── lines_convergence.png 	-- An image that contains visualisation of three orthogonal directions
+		└── vps.mat 	 		-- Mat file that contains the coordiantes of vanishing points.
+	    └── images
+	    └── lines_separation
+	    └── merged_svg
+	    └── svg_files
+	    
+
+
+
+
 
 # Code
 
@@ -35,6 +53,18 @@ To launch the code run in MatLab:
 └── inference3D		-- the folder that contains all the functions responsible for lifting a sketch into 3D.
 └── setup 		-- the folder that stores the scripts for setting up method constansts, parameters and flags.
 ```
+
+## Visualization
+To enable visualisation of each of the streps of the algorith change the following flags in setDisplaySaveSettings.m to *true*:
+	
+	global DISPLAY_INFO
+	DISPLAY_INFO = false;
+
+	global SHOW_FIGS
+	SHOW_FIGS = false;
+
+	global SHOW_FIGS_PREPROCESS
+	SHOW_FIGS_PREPROCESS = false;
 
 
 ## Paper Section 4: Preprocessing
