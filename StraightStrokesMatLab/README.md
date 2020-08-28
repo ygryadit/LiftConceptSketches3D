@@ -38,7 +38,7 @@ To launch the code run in MatLab:
 
 
 ## Paper Section 4: Preprocessing
-All the preprocessign decribes in Sectino 4 is done inside:
+All the preprocessign decribed in Sectino 4 is done inside:
 
 	[  	strokes_topology, ...
 		intersections, ...
@@ -48,7 +48,24 @@ All the preprocessign decribes in Sectino 4 is done inside:
                 	intialiseDataStructures();
 			
 			
-    
+where *strokes_topology*  and *intersections* are the two main data structures, described in detail below.
+*cam_param* -- are the estimated camera parameters
+	
+	cam_param = 
+
+	  struct with fields:
+
+			  P: [3×4 double] 	-- camera matrix
+			  f: double		-- foval value	
+	    principal_point: [3×1 double]
+			  R: [3×3 double]	-- Rotation matrix
+			  K: [3×3 double]	-- Kalibration matrix
+			  t: [3×1 double]	-- translation vector
+		   view_dir: [3×1 double]
+			fov: double		-- field of view in degrees
+			  C: [3×1 double]	-- camera position
+			 VP: [3×1 double]	-- vanishing points indices [1,2,3]
+		   vp_coord: [3×2 double]	-- vanishing points coordinates
 
 ## Core function    
     [strokes_topology, intersections, numbers_of_strokes_to_revisit] = ...
