@@ -22,7 +22,7 @@ We collected an additional set of sketches:  [OpenSketch++] (coming soon). The f
 # Launch command
 To launch the code run in MatLab:
 
-	launchOpenSketch(folder_skecthes, designer_name, object_name, folder_save)
+	launchOpenSketch(folder_sketches, designer_name, object_name, folder_save)
 
 
 # Output Data
