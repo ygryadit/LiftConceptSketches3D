@@ -250,3 +250,5 @@ where *strokes_topology*  and *intersections* are the two main data structures, 
 
 
 	
+#Contact
+If you have any questions please contact yulia.gryaditskaya@gmail.com
