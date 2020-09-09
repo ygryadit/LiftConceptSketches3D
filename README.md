@@ -30,9 +30,9 @@ sketches_json_first_viewpoint
 └── designer_name_k
 ``` 
 ## Additional design sketches OpenSketch++
-We collected an additional set of sketches [OpenSketch++] (coming soon). The files in this archive are structured the same way as in the OpenSketch dataset.
+We collected an additional set of sketches [OpenSketch++](https://repo-sam.inria.fr/d3/Lift3D/OpenSketch++.zip). The files in this archive are structured the same way as in the OpenSketch dataset.
 
 
 
 # Reconstructed sketches shown in the paper and the supplemental
-All the reconstruction results are available [here] (coming soon).
+All the reconstruction results are available [here](https://repo-sam.inria.fr/d3/Lift3D/reconstructions.zip).
