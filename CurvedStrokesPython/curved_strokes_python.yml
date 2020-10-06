@@ -1,0 +1,33 @@
+name: curved_strokes_python
+channels:
+- defaults
+dependencies:
+- _libgcc_mutex=0.1=main
+- blas=1.0=mkl
+- ca-certificates=2020.7.22=0
+- certifi=2020.6.20=py37_0
+- geos=3.8.0=he6710b0_0
+- intel-openmp=2020.2=254
+- libedit=3.1.20191231=h14c3975_1
+- libffi=3.2.1=hd88cf55_4
+- libgcc-ng=9.1.0=hdf63c60_0
+- libgfortran-ng=7.3.0=hdf63c60_0
+- libstdcxx-ng=9.1.0=hdf63c60_0
+- mkl=2020.2=256
+- mkl-service=2.3.0=py37he904b0f_0
+- mkl_fft=1.1.0=py37h23d657b_0
+- mkl_random=1.1.1=py37h0573a6f_0
+- ncurses=6.2=he6710b0_1
+- numpy=1.17.4=py37hc1035e2_0
+- numpy-base=1.17.4=py37hde5b4d6_0
+- openssl=1.1.1g=h7b6447c_0
+- pip=20.2.2=py37_0
+- python=3.7.5=h0371630_0
+- readline=7.0=h7b6447c_5
+- setuptools=49.6.0=py37_0
+- shapely=1.7.0=py37h98ec03d_0
+- six=1.15.0=py_0
+- sqlite=3.33.0=h62c20be_0
+- tk=8.6.10=hbc83047_0
+- wheel=0.35.1=py_0
+- xz=5.2.5=h7b6447c_0
