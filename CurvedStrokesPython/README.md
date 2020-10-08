@@ -22,3 +22,6 @@ python main.py -file_name=../StraightStrokesMatLab/folder_save/student8/house/vi
 
 # Output data
 The output data will be saved in the ``` folder_save ``` folder.
+
+# Contact
+If you have any questions, please contact felix.hahnlein@inria.fr
