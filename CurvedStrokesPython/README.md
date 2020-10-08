@@ -1,6 +1,7 @@
 # Install environment
 ```
 conda env create -f curved_strokes_python.yml
+conda activate curved_strokes_python
 ```
 
 # Input data
