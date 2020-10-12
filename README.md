@@ -11,6 +11,9 @@ See the README.md files for detailed description of each of the parts.
 
 We are currently working on the unified implementation in Python, which we hope to release in the future.
 
+# Project page
+https://ns.inria.fr/d3/Lift3D/
+
 # Input datasets
 ## OpenSketch
 
