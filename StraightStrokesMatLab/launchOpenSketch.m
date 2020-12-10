@@ -81,11 +81,15 @@ global GENERATE_CANDIDATE_PLANES;
 GENERATE_CANDIDATE_PLANES = true;
 
 try
-    roughSketch3DInference();
-    fprintf(fid, 'Success: designer %s, object %s \n', designer, object_name);
-    ellapsed_time = toc(timerVal1);
-    fprintf(fid,'\t\t Sketch time %.3f\n', ellapsed_time);
-    save(fullfile(folder_save, 'preformance.mat'), 'ellapsed_time');
+    failed_vp = roughSketch3DInference();
+    if ~failed_vp
+        fprintf(fid, 'Success: designer %s, object %s \n', designer, object_name);
+        ellapsed_time = toc(timerVal1);
+        fprintf(fid,'\t\t Sketch time %.3f\n', ellapsed_time);
+        save(fullfile(folder_save, 'preformance.mat'), 'ellapsed_time');
+    else
+        error('Input sketch does not contain enough of mutually orthogonal lines to compute the perspective camera or the sketch is drawn in the orthographic projection, which is currently not supported.')
+    end
 
 catch e
     getReport(e, 'extended')

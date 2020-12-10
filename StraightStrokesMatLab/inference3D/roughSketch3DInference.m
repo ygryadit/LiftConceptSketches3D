@@ -4,8 +4,13 @@
 %   separates the line strokes from the curved strokes (I).
 %   estimates the vanishing points and probablility of the lines to converge towards these vanishing points (II).
 %   passes this information to estimateIntersectionsProbabilistically() (III)
+% 
+% Output:
+%   failed_vp: 
+%       is true if the algorithm can not find enough of vanishing points
 
-function roughSketch3DInference()
+function [failed_vp] = roughSketch3DInference()
+
     close all;
     global SHOW_FIGS;
     global folder_save;
@@ -16,10 +21,14 @@ function roughSketch3DInference()
        intersections, ...
        cam_param ,...
        pairsInterInter,...
-       ind_first_stroke] = ...
+       ind_first_stroke, ...
+       failed_vp] = ...
                 intialiseDataStructures();
     
-
+    if failed_vp
+        return;
+    end
+        
     saveJSONReconstruction(strokes_topology, intersections, cam_param, folder_save); 
  
     
