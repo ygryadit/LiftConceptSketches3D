@@ -49,18 +49,19 @@ end
 
 %% Camera parameters
 up = [0,0,1];
+% 
+% cam_param.C = cam_param.C*scale_factor;
+% cam_pos = cam_param.C;
+% cam_pos = reshape(cam_pos, 1, 3);
+% view_dir = reshape(cam_param.view_dir, 1, 3);
+% focal_point = cam_pos+view_dir;
+% cam_param.R
+% cam_param.R = rotationMatrixFromView(cam_pos, focal_point, cam_param.R(2,:));
+% cam_param.R
+% cam_param.P =  cam_param.K *[ cam_param.R -cam_param.R*cam_param.C];
+% cam_param.t = -cam_param.R*cam_param.C;
 
-cam_param.C = cam_param.C*scale_factor;
-cam_pos = cam_param.C;
-cam_pos = reshape(cam_pos, 1, 3);
-view_dir = reshape(cam_param.view_dir, 1, 3);
-focal_point = cam_pos+view_dir;
-cam_param.R
-cam_param.R = rotationMatrixFromView(cam_pos, focal_point, cam_param.R(2,:));
-cam_param.R
-cam_param.P =  cam_param.K *[ cam_param.R -cam_param.R*cam_param.C];
-cam_param.t = -cam_param.R*cam_param.C;
-
+cam_param.t = cam_param.t/scale_factor;
 
 reproject3Dto2D(img, cam_param, strokes_topology,intersections,1, 'b.-');
 
