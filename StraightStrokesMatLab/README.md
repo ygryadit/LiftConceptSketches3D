@@ -32,7 +32,7 @@ folder_save
 └── designer_name
     └── object_name
         └── view1
-	    └── animation  			-- scg frames visualizing camera roration around the reconstructed shape
+	    └── animation  			-- svg frames visualizing camera roration around the reconstructed shape
 	    └── EstimatedVP
 	    	└── lines_convergence.png 	-- An image that contains visualisation of three orthogonal directions
 		└── vps.mat 	 		-- Mat file that contains the coordiantes of vanishing points.
@@ -46,7 +46,7 @@ folder_save
 		└── likely_intersections.svg           
 		└── all_intersections_curved.svg       
 	    └── lines_separation
-	    	└── curves.svg  		-- this files is passed to a StrokeAggregator prior to curved strokes processing
+	    	└── curves.svg  		-- these files are passed to a StrokeAggregator prior to curved strokes processing
 		└── lines.svg   	    	
 	    └── merged_svg
 	    	└── lines_before_merging.svg  
