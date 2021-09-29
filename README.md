@@ -9,7 +9,6 @@ ACM Transactions on Graphics (Proceedings of SIGGRAPH Asia), 2020.
 The code consists of two parts the MatLab code for straight strokes reconstruction *StraightStrokesMatLab* and Python code for curved stroke recosntruction in *CurvedStrokesPython*.
 See the README.md files for detailed description of each of the parts.
 
-We are currently working on the unified implementation in Python, which we hope to release in the future.
 
 # Project page
 https://ns.inria.fr/d3/Lift3D/
