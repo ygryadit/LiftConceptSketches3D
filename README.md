@@ -38,3 +38,7 @@ We collected an additional set of sketches [OpenSketch++](https://repo-sam.inria
 
 # Reconstructed sketches shown in the paper and the supplemental
 All the reconstruction results are available [here](https://repo-sam.inria.fr/d3/Lift3D/reconstructions.zip).
+
+# Newer version of the code
+An update of the CurvedStrokesPython to support Python>=3.9 can be found in:
+https://github.com/Liyb2002/LiftConceptSketches3D
